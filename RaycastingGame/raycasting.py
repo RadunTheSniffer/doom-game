@@ -1,6 +1,6 @@
 import pygame as pg
 import math 
-from settings import*
+from settings import *
 
 class RayCasting:
     def __init__(self, game):
@@ -21,7 +21,7 @@ class RayCasting:
                 wall_column = pg.transform.scale(wall_column, (SCALE, proj_height))
                 wall_pos = (ray * SCALE, HALF_HEIGHT - proj_height // 2)
             else:
-                texture_height = TEXTURE_SIZE*HEIGHT / proj_height
+                texture_height = TEXTURE_SIZE * HEIGHT / proj_height
                 wall_column = self.textures[texture].subsurface(
                     offset * (TEXTURE_SIZE - SCALE), HALF_TEXTURE_SIZE - texture_height // 2,
                     SCALE, texture_height
@@ -68,10 +68,10 @@ class RayCasting:
             x_vert, dx = (x_map + 1, 1) if cos_a > 0 else (x_map - 1e-6, -1)
 
             depth_vert = (x_vert - ox) / cos_a
-            y_vert = oy + depth_vert*sin_a
+            y_vert = oy + depth_vert * sin_a
 
             delta_depth = dx / cos_a
-            dy = delta_depth*sin_a
+            dy = delta_depth * sin_a
 
             for i in range(MAX_DEPTH):
                 tile_vert = int(x_vert), int(y_vert)
@@ -90,7 +90,7 @@ class RayCasting:
             else:
                 depth, texture = depth_hor, texture_hor
                 x_hor %= 1
-                offset = x_vert if sin_a > 0 else x_hor
+                offset = (1 - x_hor) if sin_a > 0 else x_hor
 
             #remove fishbowl effect
             depth *= math.cos(self.game.player.angle - ray_angle)
