@@ -89,7 +89,7 @@ class AnimatedSprite(SpriteObject):
             if os.path.isfile(os.path.join(path, file_name)):
                 img = pg.image.load(path+'/'+ file_name ).convert_alpha()
                 images.append(img)
-            return images
+        return images
 
 
 
