@@ -22,7 +22,7 @@ class NPC(AnimatedSprite):
     def update(self):
         self.check_animation_time()
         self.get_sprite()
-        self.run_logic
+        self.run_logic()
 
 
     def run_logic(self):
