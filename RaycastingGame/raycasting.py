@@ -99,9 +99,9 @@ class RayCasting:
             proj_height = SCREEN_DIST / (depth + 0.0001)
 
             #drawing the walls
-            color = [255 / (1 + depth ** 5 * 0.00002)] * 3
-            pg.draw.rect(self.game.screen, color,
-                         (ray * SCALE, HALF_HEIGHT - proj_height // 2, SCALE, proj_height))
+            #color = [255 / (1 + depth ** 5 * 0.00002)] * 3
+            #pg.draw.rect(self.game.screen, color,
+            #             (ray * SCALE, HALF_HEIGHT - proj_height // 2, SCALE, proj_height))
 
             #ray casting result
             self.ray_casting_result.append((depth, proj_height, texture, offset))
