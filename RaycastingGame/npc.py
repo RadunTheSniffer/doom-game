@@ -24,7 +24,7 @@ class NPC(AnimatedSprite):
         self.check_animation_time()
         self.get_sprite()
         self.run_logic()
-        self.draw_ray_cast()
+        #self.draw_ray_cast()
 
     def animate_pain(self):
         self.animate(self.pain_images)
@@ -82,7 +82,7 @@ class NPC(AnimatedSprite):
             if tile_hor == self.map_pos:
                 player_dist_h = depth_hor
                 break
-            if tile_hor in self.map_pos:
+            if tile_hor in self.game.map.world_map:
                 wall_dist_h = depth_hor
                 break
             x_hor += dx
